@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Type;
 
 class TypeSeeder extends Seeder
 {
@@ -11,6 +12,14 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Type::create([
+    		"name" => "Full-Time"
+    	]);
+    	Type::create([
+    		"name" => "Part-Time"
+    	]);
+    	Type::create([
+    		"name" => "Intern"
+    	]);
     }
 }

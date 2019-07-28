@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Skill;
 
 class SkillSeeder extends Seeder
 {
@@ -11,6 +12,14 @@ class SkillSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Skill::create([
+    		"name" => "Programming"
+    	]);
+    	Skill::create([
+    		"name" => "Teaching"
+    	]);
+    	Skill::create([
+    		"name" => "Designing"
+    	]);
     }
 }

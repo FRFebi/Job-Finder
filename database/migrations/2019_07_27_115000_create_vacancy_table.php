@@ -16,7 +16,6 @@ public function up()
         Schema::create('vacancy', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id')->unsigned();
-            $table->integer('skill_id')->unsigned();
             $table->integer('organization_id')->unsigned();
             $table->integer('type_id')->unsigned();
             $table->timestamps();
@@ -24,7 +23,6 @@ public function up()
 
         Schema::table('vacancy', function (Blueprint $table){
             $table->foreign('job_id')->references('id')->on('job')->onDelete('cascade');
-            $table->foreign('skill_id')->references('id')->on('skill')->onDelete('cascade');
             $table->foreign('organization_id')->references('id')->on('organization')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('type')->onDelete('cascade');
         });
