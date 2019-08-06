@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSkillVacancyTable extends Migration
+class CreatePrefVacancyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateSkillVacancyTable extends Migration
      */
     public function up()
     {
-        Schema::create('skill_vacancy', function (Blueprint $table) {
+        Schema::create('pref_vacancy', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('skill_id')->unsigned();
+            $table->integer('pref_id')->unsigned();
             $table->integer('vacancy_id')->unsigned();
             $table->timestamps();
         });
-
-        Schema::table('skill_vacancy', function (Blueprint $table){
+        Schema::table('pref_vacancy', function (Blueprint $table){
+            $table->foreign('pref_id')->references('id')->on('qualifications')->onDelete('cascade');
             $table->foreign('vacancy_id')->references('id')->on('vacancy')->onDelete('cascade');
-            $table->foreign('skill_id')->references('id')->on('skill')->onDelete('cascade');
         });
     }
 
@@ -33,6 +32,6 @@ class CreateSkillVacancyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skill_vacancy');
+        Schema::dropIfExists('pref_vacancy');
     }
 }

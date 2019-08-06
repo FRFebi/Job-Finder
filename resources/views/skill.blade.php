@@ -10,7 +10,7 @@
         <div class="hero bg-primary-dark-op">
             <div class="hero-inner">
                 <div class="content content-full text-center">
-                    <h1 class="display-4 font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInDown">Job Finder</h1>
+                    <h1 class="display-4 font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInDown">Job Finder </h1>
                     <h2 class="font-w400 text-white-op mb-50 invisible" data-toggle="appear" data-class="animated fadeInUp" data-timeout="250">What your skill?</h2>
                     <div class="row justify-content-center">
                         <div class="col col-lg-auto">
@@ -18,11 +18,11 @@
                                 <div class="block-content block-content-full"> --}}
                                     <form class="form-inline" action="{{ route('toFinder') }}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger" name="prev" value="back">Previous</button>
+                                        <button type="submit" class="btn btn-danger" name="state" value="prev">Previous</button>
                                         <input type="text" class="form-control bg-white py-10 px-10 mb-2 ml-sm-2 mr-sm-2 mb-sm-0" placeholder="Programming, Teaching, ..." name="skill" value="">
                                         <input type="hidden" name="job" value="{{ $job }}">
                                         <input type="hidden" name="location" value="{{ $location }}">
-                                        <button type="submit" class="btn btn-primary" name="next" value="go">Next</button>
+                                        <button type="submit" class="btn btn-primary" name="state" value="next">Next</button>
                                     </form>
                                 {{-- </div>
                             </div> --}}

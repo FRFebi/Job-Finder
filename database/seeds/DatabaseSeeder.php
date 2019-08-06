@@ -15,11 +15,14 @@ class DatabaseSeeder extends Seeder
         $this->call("JobSeeder");
         $this->call("LocationSeeder");
         $this->call("OrganizationSeeder");
-        $this->call("SkillSeeder");
         $this->call("TypeSeeder");
+        $this->call("ResponsibilitySeeder");
+        $this->call("QualificationSeeder");
         $this->call("VacancySeeder");
+        $this->call("QualificationVacancySeeder");
+        $this->call("PrefferedVacancySeeder");
+        $this->call("ResponsibilityVacancySeeder");
         $this->call("DegreeVacancySeeder");
         $this->call("LocationVacancySeeder");
-        $this->call("SkillVacancySeeder");
     }
 }

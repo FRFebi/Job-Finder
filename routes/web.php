@@ -12,7 +12,7 @@
 */
 
 // Example Routes
-Route::get('/', 'PageController@landing');
-Route::post('/tolocation','PageController@toLocation')->name('toLocation');
-Route::post('/toskill','PageController@toSkill')->name('toSkill');
-Route::post('/tofinder','PageController@toFinder')->name('toFinder');
+Route::match(array('get','post'),'/', 'PageController@landing')->name('landing');
+Route::match(array('get','post'),'/location','PageController@location')->name('toLocation');
+Route::post('/skill','PageController@skill')->name('toSkill');
+Route::post('/finder','FinderController@show')->name('toFinder');

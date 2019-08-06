@@ -110,7 +110,7 @@
             </aside>
             <!-- END Side Overlay -->
 
-            <header id="page-header" class=" bg-gray-lighter">
+{{--             <header id="page-header" class=" bg-gray-lighter">
                 <div class="content-header">
                     <div class="content-header-section">
                         <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="sidebar_toggle">
@@ -302,7 +302,7 @@
                 </div>
 
 
-            </header>
+            </header> --}}
             <!-- Sidebar -->
             <!--
                 Helper classes
@@ -316,183 +316,212 @@
                     - use .sidebar-mini-visible-b if you would like to be a block when visible (display: block)
                 -->
                 <nav id="sidebar">
-                   <div class="content-header content-header-fullrow px-15 bg-gray-lighter">
-    <div class="content-header-section sidebar-mini-visible-b">
-        <span class="content-header-item font-w700 font-size-xl float-left animated fadeIn">
-            <span class="text-dual-primary-dark">c</span><span class="text-primary">b</span>
-        </span>
-    </div>
-    <div class="content-header-section text-center align-parent sidebar-mini-hidden">
-        <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none align-v-r" data-toggle="layout" data-action="sidebar_close">
-            <i class="fa fa-times text-danger"></i>
-        </button>
-        <div class="content-header-item">
-            <a class="link-effect font-w700" href="index.php">
-                <i class="si si-fire text-primary"></i>
-                <span class="font-size-xl text-dual-primary-dark">Job</span><span class="font-size-xl text-primary">Finder</span>
-            </a>
+                 <div class="content-header content-header-fullrow px-15 bg-gray-lighter">
+                    <div class="content-header-section sidebar-mini-visible-b">
+                        <span class="content-header-item font-w700 font-size-xl float-left animated fadeIn">
+                            <span class="text-dual-primary-dark">c</span><span class="text-primary">b</span>
+                        </span>
+                    </div>
+                    <div class="content-header-section text-center align-parent sidebar-mini-hidden">
+                        <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none align-v-r" data-toggle="layout" data-action="sidebar_close">
+                            <i class="fa fa-times text-danger"></i>
+                        </button>
+                        <div class="content-header-item">
+                            <a class="link-effect font-w700" href="{{ route('landing') }}">
+                                <i class="si si-fire text-primary"></i>
+                                <span class="font-size-xl text-dual-primary-dark">Job</span><span class="font-size-xl text-primary">Finder</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-side content-side-full">
+                    <form action="{{ route('toFinder') }}" method="post">
+                        @csrf
+                        <ul class="nav-main">
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-briefcase"></i><span class="sidebar-mini-hide">Job</span></a>
+                                <ul>
+                                    <li>
+                                        <div class="form-inline">
+                                            <input class="form-control" type="text" name="job" value="{{ $job }}">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-pointer"></i><span class="sidebar-mini-hide">Location</span></a>
+                                <ul>
+                                    <li>
+                                        <div class="form-inline">
+                                            <input class="form-control" type="text" name="location" value="{{ $location }}">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-book-open"></i><span class="sidebar-mini-hide">Skill</span></a>
+                                <ul>
+                                    <li>
+                                        <div class="form-inline">
+                                            <input class="form-control" type="text" name="skill" value="{{ $skill }}">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-graduation"></i><span class="sidebar-mini-hide">Degree</span></a>
+                                <ul>
+                                    <li>
+                                        <div class="row no-gutters items-push">
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($degrees as $element)
+                                                        {{ $element=='SD'? "checked=''": '' }}
+                                                    @endforeach name="degree[]" value="SD">
+                                                    <span class="css-control-indicator"></span> SD
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox" >
+                                                    <input type="checkbox" class="css-control-input" @foreach ($degrees as $element)
+                                                        {{ $element=='SMP'? "checked=''": '' }}
+                                                    @endforeach name="degree[]" value="SMP">
+                                                    <span class="css-control-indicator"></span> SMP
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($degrees as $element)
+                                                        {{ $element=='SMA'? "checked=''": '' }}
+                                                    @endforeach name="degree[]" value="SMA">
+                                                    <span class="css-control-indicator"></span> SMA
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($degrees as $element)
+                                                        {{ $element=='S1'? "checked=''": '' }}
+                                                    @endforeach name="degree[]" value="S1">
+                                                    <span class="css-control-indicator"></span> S1
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($degrees as $element)
+                                                        {{ $element=='S2'? "checked=''": '' }}
+                                                    @endforeach name="degree[]" value="S2">
+                                                    <span class="css-control-indicator"></span> S2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-clock"></i><span class="sidebar-mini-hide">Job Type</span></a>
+                                <ul>
+                                    <li>
+                                        <div class="row no-gutters items-push">
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($types as $element)
+                                                        {{ $element=='Full-Time'? "checked=''": '' }}
+                                                    @endforeach name="type[]" value="Full-Time">
+                                                    <span class="css-control-indicator"></span> Full-Time
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($types as $element)
+                                                        {{ $element=='Part-Time'? "checked=''": '' }}
+                                                    @endforeach  name="type[]" value="Part-Time">
+                                                    <span class="css-control-indicator"></span> Part-Time
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="css-control css-control-primary css-checkbox">
+                                                    <input type="checkbox" class="css-control-input" @foreach ($types as $element)
+                                                        {{ $element=='Intern'? "checked=''": '' }}
+                                                    @endforeach  name="type[]" value="Intern">
+                                                    <span class="css-control-indicator"></span> Intern
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-building"></i><span class="sidebar-mini-hide">Organization</span></a>
+                                <ul>
+                                    <li>
+                                      <div class="row no-gutters items-push">
+                                        <div class="col-6">
+                                            <label class="css-control css-control-primary css-checkbox">
+                                                <input type="checkbox" class="css-control-input" @foreach ($organizations as $element)
+                                                        {{ $element=='Telkom Sigma'? "checked=''": '' }}
+                                                    @endforeach  name="organization[]" value="Telkom Sigma">
+                                                <span class="css-control-indicator"></span> Telkom Sigma
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="css-control css-control-primary css-checkbox">
+                                                <input type="checkbox" class="css-control-input" @foreach ($organizations as $element)
+                                                        {{ $element=='Telkomsel'? "checked=''": '' }}
+                                                    @endforeach  name="organization[]" value="Telkomsel">
+                                                <span class="css-control-indicator"></span> Telkomsel
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="css-control css-control-primary css-checkbox">
+                                                <input type="checkbox" class="css-control-input" @foreach ($organizations as $element)
+                                                        {{ $element=='TelkomTelstra'? "checked=''": '' }}
+                                                    @endforeach  name="organization[]" value="TelkomTelstra">
+                                                <span class="css-control-indicator"></span> TelkomTelstra
+                                            </label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                          <a class="active" href="#">
+                              <div class="form-inline">
+                                <button type="submit" class="btn btn-outline-primary btn-block" name="state" value="next">Submit</button>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </form>
         </div>
-    </div>
-</div>
-<div class="content-side content-side-full">
-    <form action="" method="post">
-        @csrf
-        <ul class="nav-main">
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Job</span></a>
-                <ul>
-                    <li>
-                        <div class="form-inline">
-                            <input class="form-control" type="text" name="job" value="{{ $job }}">
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Location</span></a>
-                <ul>
-                    <li>
-                        <div class="form-inline">
-                            <input class="form-control" type="text" name="location" value="{{ $location }}">
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Skill</span></a>
-                <ul>
-                    <li>
-                        <div class="form-inline">
-                            <input class="form-control" type="text" name="skill" value="{{ $skill }}">
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Degree</span></a>
-                <ul>
-                    <li>
-                        <div class="row no-gutters items-push">
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> SD
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> SMP
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> SMA
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> S1
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> S2
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Job Type</span></a>
-                <ul>
-                    <li>
-                        <div class="row no-gutters items-push">
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> Full-Time
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> Part-Time
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label class="css-control css-control-primary css-checkbox">
-                                    <input type="checkbox" class="css-control-input">
-                                    <span class="css-control-indicator"></span> Intern
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Organization</span></a>
-                <ul>
-                    <li>
-                      <div class="row no-gutters items-push">
-                        <div class="col-6">
-                            <label class="css-control css-control-primary css-checkbox">
-                                <input type="checkbox" class="css-control-input">
-                                <span class="css-control-indicator"></span> Telkom Sigma
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <label class="css-control css-control-primary css-checkbox">
-                                <input type="checkbox" class="css-control-input">
-                                <span class="css-control-indicator"></span> Telkomsel
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <label class="css-control css-control-primary css-checkbox">
-                                <input type="checkbox" class="css-control-input">
-                                <span class="css-control-indicator"></span> TelkomTelstra
-                            </label>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</form>
-</div>
-                </nav>
-                <!-- END Sidebar -->
-                <!-- Main Container -->
-                <main id="main-container">
-                    @yield('content')
-                </main>
-                <!-- END Main Container -->
+    </nav>
+    <!-- END Sidebar -->
+    <!-- Main Container -->
+    <main id="main-container">
+        @yield('content')
+    </main>
+    <!-- END Main Container -->
 
-                <!-- Footer -->
-                <footer id="page-footer" class="opacity-0">
-                    <div class="content py-20 font-size-xs clearfix">
-                        <div class="float-right">
-                            Crafted with <i class="fa fa-heart text-pulse"></i> by <a class="font-w600" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
-                        </div>
-                        <div class="float-left">
-                            <a class="font-w600" href="https://1.envato.market/95j" target="_blank">Codebase</a> &copy; <span class="js-year-copy"></span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- END Footer -->
+    <!-- Footer -->
+    <footer id="page-footer" class="opacity-0">
+        <div class="content py-20 font-size-xs clearfix">
+            <div class="float-right">
+                Crafted with <i class="fa fa-heart text-pulse"></i> by <a class="font-w600" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
             </div>
-            <!-- END Page Container -->
+            <div class="float-left">
+                <a class="font-w600" href="https://1.envato.market/95j" target="_blank">Codebase</a> &copy; <span class="js-year-copy"></span>
+            </div>
+        </div>
+    </footer>
+    <!-- END Footer -->
+</div>
+<!-- END Page Container -->
 
-            <!-- Codebase Core JS -->
-            <script src="{{ mix('js/codebase.app.js') }}"></script>
+<!-- Codebase Core JS -->
+<script src="{{ mix('js/codebase.app.js') }}"></script>
 
-            <!-- Laravel Scaffolding JS -->
-            <script src="{{ mix('js/laravel.app.js') }}"></script>
+<!-- Laravel Scaffolding JS -->
+<script src="{{ mix('js/laravel.app.js') }}"></script>
 
-            @yield('js_after')
-        </body>
-        </html>
+@yield('js_after')
+</body>
+</html>

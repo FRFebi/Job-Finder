@@ -20,10 +20,16 @@ class Vacancy extends Model
 	public function organization(){
 		return $this->belongsTo('App\Organization');
 	}
-	public function skills(){
-		return $this->belongsToMany('App\Skill','skill_vacancy','vacancy_id','skill_id');
-	}
 	public function type(){
 		return $this->belongsTo('App\Type');
+	}
+	public function qualifications(){
+		return $this->belongsToMany('App\Qualification','qua_vacancy', 'vacancy_id', 'qua_id');
+	}
+	public function preffereds(){
+		return $this->belongsToMany('App\Qualification','pref_vacancy', 'vacancy_id', 'pref_id');
+	}
+	public function responsibilities(){
+		return $this->belongsToMany('App\Responsibility', 'resp_vacancy','vacancy_id', 'resp_id');
 	}
 }

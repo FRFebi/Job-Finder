@@ -18,10 +18,10 @@
                                 <div class="block-content block-content-full"> --}}
                                     <form class="form-inline" action="{{ route('toSkill') }}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger" name="prev" value="back">Previous</button>
+                                        <button type="submit" class="btn btn-danger" name="state" value="prev">Previous</button>
                                         <input type="text" class="form-control bg-white py-10 px-10 mb-2 ml-sm-2 mr-sm-2 mb-sm-0" placeholder="Jakarta, Surabaya..." name="location" value="{{ isset($location)? $location : "" }}">
                                         <input type="hidden" name="job" value="{{ $job }}">
-                                        <button type="submit" class="btn btn-primary" name="next" value="go">Next</button>
+                                        <button type="submit" class="btn btn-primary" name="state" value="next">Next</button>
                                     </form>
                                 {{-- </div>
                             </div> --}}

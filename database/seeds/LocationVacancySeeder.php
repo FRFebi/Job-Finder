@@ -11,17 +11,29 @@ class LocationVacancySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('degree_vacancy')->insert([
-        	'degree_id'		=> '1',
+        DB::table('location_vacancy')->insert([
+        	'location_id'		=> '1',
         	'vacancy_id'	=> '1'
         ]);
-        DB::table('degree_vacancy')->insert([
-        	'degree_id'		=> '2',
+        DB::table('location_vacancy')->insert([
+        	'location_id'		=> '2',
         	'vacancy_id'	=> '2'
         ]);
-        DB::table('degree_vacancy')->insert([
-        	'degree_id'		=> '3',
+        DB::table('location_vacancy')->insert([
+        	'location_id'		=> '3',
         	'vacancy_id'	=> '3'
+        ]);
+        DB::table('location_vacancy')->insert([
+            'location_id'       => '1',
+            'vacancy_id'    => '2'
+        ]);
+        DB::table('location_vacancy')->insert([
+            'location_id'       => '3',
+            'vacancy_id'    => '2'
+        ]);
+        DB::table('location_vacancy')->insert([
+            'location_id'       => '4',
+            'vacancy_id'    => '2'
         ]);
     }
 }

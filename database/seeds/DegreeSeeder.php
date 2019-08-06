@@ -12,7 +12,7 @@ class DegreeSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { 	 
         Degree::create([
         	"name" => "SD"
         ]);

@@ -18,6 +18,7 @@ public function up()
             $table->integer('job_id')->unsigned();
             $table->integer('organization_id')->unsigned();
             $table->integer('type_id')->unsigned();
+            $table->longText('about');
             $table->timestamps();
         });
 
